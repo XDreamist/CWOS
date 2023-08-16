@@ -72,7 +72,7 @@
 	.prop_place_img
 	{
 		min-height: 50px;
-		height: calc(100vw / 1.714);
+		height: calc(75vw / 1.714);
 	}
 	.banner_item
 	{

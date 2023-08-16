@@ -638,6 +638,54 @@ section
 	font-size: 12px;
 	color: #FFFFFF;
 }
+.drop_menu
+{
+    position: relative;
+    display: inline-block;
+}
+.drop_menu > a
+{
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+}
+.drop_content
+{
+    /*display: none;*/
+    /*position: absolute;*/
+    /*background-color: #fff;*/
+    /*border: 1px solid #ccc;*/
+    /*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);*/
+    /*z-index: 1;*/
+	position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #333;
+    display: none;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.drop_menu:hover .drop_content
+{
+    display: block;
+}
+.submenu-list
+{
+    list-style: none;
+    padding: 0;
+}
+.submenu-list li
+{
+    margin-bottom: 8px;
+	text-align: left;
+}
+.submenu-list li a
+{
+	color: #FFFFFF;
+    text-decoration: none;
+    display: block;
+}
 
 /*********************************
 3.5 Hamburger Menu
@@ -862,7 +910,7 @@ section
 }
 .prop_place_img
 {
-	height: 350px;
+	height: 550px;
 }
 .red_button
 {
@@ -1009,12 +1057,12 @@ section
 }
 .grid_sorting_button.active:hover
 {
-	background: #FE7C7F !important;
+	background: #73c8ea !important;
 }
 .grid_sorting_button.active
 {
 	color: #FFFFFF;
-	background: #fe4c50;
+	background: #00adef;
 }
 
 /*********************************
@@ -1095,7 +1143,7 @@ section
 .product_price
 {
 	font-size: 16px;
-	color: #fe4c50;
+	color: #00adef;
 	font-weight: 600;
 }
 .product_price span
@@ -1145,7 +1193,7 @@ section
 }
 .product_bubble_red::after
 {
-	border-color: transparent transparent transparent #fe4c50;
+	border-color: transparent transparent transparent #00adef;
 }
 .product_bubble_left::after
 {
@@ -1153,7 +1201,7 @@ section
 }
 .product_bubble_red
 {
-	background: #fe4c50;
+	background: #00adef;
 }
 .product_bubble_green
 {
@@ -1273,7 +1321,7 @@ section
 	transform: translateX(-50%);
 	width: 60px;
 	height: 5px;
-	background: #fe4c50;
+	background: #00adef;
 	content: '';
 }
 .timer
@@ -1297,7 +1345,7 @@ section
 {
 	font-size: 48px;
 	font-weight: 600;
-	color: #fe4c50;
+	color: #00adef;
 	margin-top: 10px;
 }
 .timer_unit
@@ -1435,7 +1483,7 @@ section
 .benefit_icon i
 {
 	font-size: 30px;
-	color: #fe4c50;
+	color: #00adef;
 }
 .benefit_content
 {
@@ -1536,13 +1584,13 @@ section
 	font-size: 14px;
 	line-height: 16px;
 	font-weight: 500;
-	color: #fe4c50;
-	border-bottom: solid 1px #fe4c50;
+	color: #00adef;
+	border-bottom: solid 1px #00adef;
 	margin-top: 12px;
 }
 .blog_more:hover
 {
-	color: #FE7C7F;
+	color: #73c8ea;
 }
 
 /*********************************
@@ -1626,7 +1674,7 @@ section
 	width: 160px;
 	height: 46px;
 	border: none;
-	background: #fe4c50;
+	background: #00adef;
 	color: #FFFFFF;
 	font-size: 14px;
 	font-weight: 500;
@@ -1635,7 +1683,7 @@ section
 }
 .newsletter_submit_btn:hover
 {
-	background: #FE7C7F;
+	background: #73c8ea;
 }
 
 /*********************************
@@ -1672,7 +1720,7 @@ section
 }
 .footer_nav li a:hover, .cr a, .cr i
 {
-	color: #fe4c50;
+	color: #00adef;
 }
 .footer_social
 {
