@@ -9,5 +9,5 @@ urlpatterns = [path('', views.homepage, name = "home"),
                path('cart', views.cartpage, name = "cart"),
                path('checkout', views.checkoutpage, name = "checkout"),
                path('thankyou', views.thankyoupage, name = "thankyou"),
-               path('addproduct', views.addproductpage, name = "addproduct"),
+               # path('addproduct', views.addproductpage, name = "addproduct"),
                ]

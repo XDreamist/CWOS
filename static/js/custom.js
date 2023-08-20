@@ -14,6 +14,7 @@
 8. Init Fix Product Border
 9. Init Isotope Filtering
 10. Init Slider
+11. Set MainSliderContent
 
 
 ******************************/
@@ -116,7 +117,7 @@ jQuery(document).ready(function($)
 
 	/*
 
-		2. Set Header
+	4. Set NavBar
 
 	*/
 
@@ -147,6 +148,8 @@ jQuery(document).ready(function($)
 				if(!menuActive)
 				{
 					openMenu();
+					currentSlide = (currentSlide + 1) % sliderContent.length;
+        			updateSliderContent();
 				}
 			});
 		}
@@ -476,4 +479,72 @@ jQuery(document).ready(function($)
     		}
     	}
     }
+
+	/*
+
+	11. Set MainSliderContent
+
+	*/
+
+	var sliderContent = [
+        {
+            heading: "New Collections",
+            subheading: "Get up to 30% Off New Arrivals",
+            buttonLabel: "shop now",
+            bg_imageUrl: "static/images/bg.png",
+			imageUrl: "static/images/printer.png"
+        },
+		{
+			heading: "Heavy Combo",
+            subheading: "Get up to 70% Off New Combo",
+            buttonLabel: "shop now",
+            bg_imageUrl: "static/images/bg.png",
+			imageUrl: "static/images/product_2.png"
+		}
+        // Add more content objects as needed
+    ];
+
+    let currentSlide = 0;
+
+    var sliderContentElem = document.querySelector('.slider_content');
+	var placeholderImgElem = $('.prop_place_img');
+    var prevButton = document.getElementById('prevButton');
+    var nextButton = document.getElementById('nextButton');
+
+    function updateSliderContent() {
+        var content = sliderContent[currentSlide];
+        // sliderContentElem.innerHTML = `
+        //     <h6>${content.heading}</h6>
+        //     <h2>${content.subheading}</h2>
+        //     <div class="red_button shop_now_button"><a href="#">${content.buttonLabel}</a></div>
+        // `;
+        document.querySelector('.main_slider').style.backgroundImage = `url(${content.bg_imageUrl})`;
+		placeholderImgElem.attr('src', content.imageUrl);
+		console.log("Setting imageUrl:", content.imageUrl);
+    }
+
+    // prevButton.addEventListener('click', () => {
+    //     currentSlide = (currentSlide - 1 + sliderContent.length) % sliderContent.length;
+    //     updateSliderContent();
+    // });
+
+	$('.prevButton').on('click', function()
+	{
+        currentSlide = (currentSlide - 1 + sliderContent.length) % sliderContent.length;
+        updateSliderContent();
+	});
+
+    // nextButton.addEventListener('click', () => {
+    //     currentSlide = (currentSlide + 1) % sliderContent.length;
+    //     updateSliderContent();
+    // });
+
+	$('.nextButton').on('click', function()
+	{
+        currentSlide = (currentSlide + 1) % sliderContent.length;
+        updateSliderContent();
+	});
+
+    // Initial content update
+    updateSliderContent();
 });

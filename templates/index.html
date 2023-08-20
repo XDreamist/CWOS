@@ -33,25 +33,23 @@
 						</div>
 						<nav class="navbar">
 							<ul class="navbar_menu">
-								<li><a href="#">services</a></li>
-								<li class="drop_menu">
+								<li class="head_menu trans_300"><a href="#">services</a></li>
+								<li class="drop_menu head_menu trans_300">
 									<a href="#">
-										products&emsp;
-										<i class="fa fa-angle-down"></i>
+										products&nbsp;&nbsp;<i class="fa fa-angle-down"></i>
 									</a>
-									<div class="drop_content">
+									<div class="text-left drop_content">
 										<ul class="submenu-list">
-											<li><a href="#">cctv</a></li>
-											<li><a href="#">laptops</a></li>
-											<li><a href="#">mobiles</a></li>
-											<li><a href="#">printers</a></li>
+                                            {% for type in product_type %}
+						                    <li><a href="#">{{ type.name }}</a></li>
+                                            {% endfor %}
 										</ul>
 									</div>
 								</li>
-								<li><a href="#">sectors</a></li>
-								<li><a href="#">about</a></li>
-								<li><a href="#">career</a></li>
-								<li><a href="contact.html">contact</a></li>
+								<li class="head_menu trans_300"><a href="#">sectors</a></li>
+								<li class="head_menu trans_300"><a href="#">about</a></li>
+								<li class="head_menu trans_300"><a href="#">career</a></li>
+								<li class="head_menu trans_300"><a href="contact.html">contact</a></li>
 							</ul>
 							<ul class="navbar_user">
 								<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
@@ -72,7 +70,7 @@
 			</div>
 		</div>
 	</div>
-	<header class="header trans_300">
+	<header class="header trans_500">
 
 		<!-- Main Navigation -->
 
@@ -85,17 +83,23 @@
 						</div>
 						<nav class="navbar">
 							<ul class="navbar_menu">
-								<li><a href="#">services</a></li>
-								<li>
+								<li class="head_menu trans_300"><a href="#">services</a></li>
+								<li class="drop_menu trans_300">
 									<a href="#">
-										products&emsp;
-										<i class="fa fa-angle-down"></i>
+										products&nbsp;&nbsp;<i class="fa fa-angle-down"></i>
 									</a>
+									<div class="text-left drop_content head_menu trans_300">
+										<ul class="submenu-list">
+                                            {% for type in product_type %}
+						                    <li ><a href="#">{{ type.name }}</a></li>
+                                            {% endfor %}
+										</ul>
+									</div>
 								</li>
-								<li><a href="#">sectors</a></li>
-								<li><a href="#">about</a></li>
-								<li><a href="#">career</a></li>
-								<li><a href="contact.html">contact</a></li>
+								<li class="head_menu trans_300"><a href="#">sectors</a></li>
+								<li class="head_menu trans_300"><a href="#">about</a></li>
+								<li class="head_menu trans_300"><a href="#">career</a></li>
+								<li class="head_menu trans_300"><a href="contact.html">contact</a></li>
 							</ul>
 							<ul class="navbar_user">
 								<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
@@ -130,10 +134,9 @@
 						<i class="fa fa-angle-down"></i>
 					</a>
 					<ul class="menu_selection">
-						<li><a href="#">cctv</a></li>
-						<li><a href="#">laptops</a></li>
-						<li><a href="#">mobiles</a></li>
-						<li><a href="#">printers</a></li>
+                        {% for type in product_type %}
+						<li><a href="#">{{ type.name }}</a></li>
+                        {% endfor %}
 					</ul>
 				</li>
 				<li class="menu_item"><a href="#">sectors</a></li>
@@ -147,11 +150,15 @@
 	<!-- Slider -->
 
 	<div class="main_slider" style="background-image:url(static/images/bg.png)">
+<!--        <video class="background_video" autoplay muted loop>-->
+<!--            <source src="static/videos/motherboard.mp4" type="video/mp4">-->
+<!--            Your browser does not support the video tag.-->
+<!--        </video>-->
 		<div class="container fill_height">
 			<div class="row align-items-center fill_height">
 				<div class="col">
 					<div class="main_slider_content">
-						<h6>Spring / Summer Collection 2017</h6>
+						<h6>New Collections</h6>
 						<h2>Get up to 30% Off New Arrivals</h2>
 						<div class="red_button shop_now_button"><a href="#">shop now</a></div>
 					</div>
@@ -161,6 +168,10 @@
 				</div>
 			</div>
 		</div>
+		<div class="slider_buttons">
+        	<button id="prevButton">Prev</button>
+        	<button id="nextButton">Next</button>
+    	</div>
 	</div>
 
 	<!-- Banner -->
@@ -209,9 +220,12 @@
 					<div class="new_arrivals_sorting">
 						<ul class="arrivals_grid_sorting clearfix button-group filters-button-group">
 							<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center active is-checked" data-filter="*">all</li>
-							<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".women">women's</li>
-							<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".accessories">accessories</li>
-							<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".men">men's</li>
+							{% for type in product_type %}
+							<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".{{type}}">{{type}}s</li>
+<!--							<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".women">women's</li>-->
+<!--							<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".accessories">accessories</li>-->
+<!--							<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".men">men's</li>-->
+							{% endfor %}
 						</ul>
 					</div>
 				</div>
@@ -221,21 +235,24 @@
 					<div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
 
 						<!-- Product 1 -->
+						{% for product in products %}
 
-						<div class="product-item men">
+						<div class="product-item {{product.product_type}}">
 							<div class="product discount product_filter">
 								<div class="product_image">
-									<img src="{% static 'images/product_1.png' %}" alt="">
+									<img src="{{ product.photo.url }}" alt="">
 								</div>
-								<div class="favorite favorite_left"></div>
-								<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-$20</span></div>
+								<div class="favorite favorite_lef"></div>
+<!--								<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-$20</span></div>-->
 								<div class="product_info">
-									<h6 class="product_name"><a href="single.html">Fujifilm X100T 16 MP Digital Camera (Silver)</a></h6>
-									<div class="product_price">$520.00<span>$590.00</span></div>
+									<h6 class="product_name"><a href="single.html">{{ product.name }}</a></h6>
+									<div class="product_price">{{ product.price }}<span>$520.00</span></div>
 								</div>
 							</div>
-							<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+							<div class="red_button add_to_cart_button"><a href="#">View</a></div>
 						</div>
+
+                        {% endfor %}
 
 						<!-- Product 2 -->
 
