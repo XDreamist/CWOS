@@ -63,7 +63,7 @@
 	.main_slider
 	{
 		min-height: 400px;
-		height: calc(100vw / 1.714);
+		height: calc(100vw / 1.82);
 	}
 	.main_slider_content
 	{
@@ -496,8 +496,8 @@
 	}
 	.main_slider
 	{
-		height: calc(100vh - 70px);
-		/*height: 80vw;*/
+		/*height: calc(100vh - 70px);*/
+		height: 80vw;
 		min-height: auto;
 		margin-top: 70px;
 	}

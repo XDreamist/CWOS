@@ -148,8 +148,6 @@ jQuery(document).ready(function($)
 				if(!menuActive)
 				{
 					openMenu();
-					currentSlide = (currentSlide + 1) % sliderContent.length;
-        			updateSliderContent();
 				}
 			});
 		}
@@ -486,63 +484,38 @@ jQuery(document).ready(function($)
 
 	*/
 
-	var sliderContent = [
-        {
-            heading: "New Collections",
-            subheading: "Get up to 30% Off New Arrivals",
-            buttonLabel: "shop now",
-            bg_imageUrl: "static/images/bg.png",
-			imageUrl: "static/images/printer.png"
-        },
-		{
-			heading: "Heavy Combo",
-            subheading: "Get up to 70% Off New Combo",
-            buttonLabel: "shop now",
-            bg_imageUrl: "static/images/bg.png",
-			imageUrl: "static/images/product_2.png"
-		}
-        // Add more content objects as needed
-    ];
-
-    let currentSlide = 0;
-
-    var sliderContentElem = document.querySelector('.slider_content');
-	var placeholderImgElem = $('.prop_place_img');
-    var prevButton = document.getElementById('prevButton');
-    var nextButton = document.getElementById('nextButton');
+    let currentRate = 0;
+	var animateRow = $('.animate_row');
+	var totalSlides = $('.slide').length;
 
     function updateSliderContent() {
-        var content = sliderContent[currentSlide];
-        // sliderContentElem.innerHTML = `
-        //     <h6>${content.heading}</h6>
-        //     <h2>${content.subheading}</h2>
-        //     <div class="red_button shop_now_button"><a href="#">${content.buttonLabel}</a></div>
-        // `;
-        document.querySelector('.main_slider').style.backgroundImage = `url(${content.bg_imageUrl})`;
-		placeholderImgElem.attr('src', content.imageUrl);
-		console.log("Setting imageUrl:", content.imageUrl);
+		var translateXValue = currentRate + '%';
+        var transformValue = 'translateX(' + translateXValue + ')';
+        animateRow.css('transform', transformValue);
     }
-
-    // prevButton.addEventListener('click', () => {
-    //     currentSlide = (currentSlide - 1 + sliderContent.length) % sliderContent.length;
-    //     updateSliderContent();
-    // });
 
 	$('.prevButton').on('click', function()
 	{
-        currentSlide = (currentSlide - 1 + sliderContent.length) % sliderContent.length;
-        updateSliderContent();
+		if (currentRate === 0) {
+            currentRate = currentRate - (100 * (totalSlides - 1));
+			updateSliderContent();
+        }
+		else {
+			currentRate = currentRate + 100;
+			updateSliderContent();
+		}
 	});
-
-    // nextButton.addEventListener('click', () => {
-    //     currentSlide = (currentSlide + 1) % sliderContent.length;
-    //     updateSliderContent();
-    // });
 
 	$('.nextButton').on('click', function()
 	{
-        currentSlide = (currentSlide + 1) % sliderContent.length;
-        updateSliderContent();
+		if (currentRate === -(totalSlides - 1) * 100) {
+            currentRate = 0;
+			updateSliderContent();
+        }
+		else {
+			currentRate = currentRate - 100;
+			updateSliderContent();
+		}
 	});
 
     // Initial content update
