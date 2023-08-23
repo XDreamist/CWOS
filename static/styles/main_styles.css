@@ -125,7 +125,7 @@ p a:hover::after
 }
 p::selection
 {
-	background: #fde0db;
+	background: #01b7fd;
 }
 h1{font-size: 72px;}
 h2{font-size: 40px;}
@@ -228,7 +228,7 @@ section
 	-moz-transition: all 300ms ease;
 	-ms-transition: all 300ms ease;
 	-o-transition: all 300ms ease;
-	transition: all 300ms ease; /* Changed (default : 300ms)*/
+	transition: all 300ms ease;
 }
 .trans_400
 {
@@ -1803,5 +1803,5 @@ section
 }
 .footer_social ul li a:hover
 {
-	color: #fe4c50;
+	color: #00adef;
 }

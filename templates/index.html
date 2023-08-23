@@ -35,7 +35,7 @@
 							<ul class="navbar_menu">
 								<li class="head_menu trans_300"><a href="#">services</a></li>
 								<li class="drop_menu head_menu trans_300">
-									<a href="#">
+									<a href="{% url 'shop' %}">
 										products&nbsp;&nbsp;<i class="fa fa-angle-down"></i>
 									</a>
 									<div class="text-left drop_content">
@@ -49,7 +49,7 @@
 								<li class="head_menu trans_300"><a href="#">sectors</a></li>
 								<li class="head_menu trans_300"><a href="#">about</a></li>
 								<li class="head_menu trans_300"><a href="#">career</a></li>
-								<li class="head_menu trans_300"><a href="contact.html">contact</a></li>
+								<li class="head_menu trans_300"><a href="{% url 'contact' %}">contact</a></li>
 							</ul>
 							<ul class="navbar_user">
 								<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
@@ -84,11 +84,11 @@
 						<nav class="navbar">
 							<ul class="navbar_menu">
 								<li class="head_menu trans_300"><a href="#">services</a></li>
-								<li class="drop_menu trans_300">
-									<a href="#">
+								<li class="drop_menu head_menu trans_300">
+									<a href="{% url 'shop' %}">
 										products&nbsp;&nbsp;<i class="fa fa-angle-down"></i>
 									</a>
-									<div class="text-left drop_content head_menu trans_300">
+									<div class="text-left drop_content trans_300">
 										<ul class="submenu-list">
                                             {% for type in product_type %}
 						                    <li ><a href="#">{{ type.name }}</a></li>
@@ -99,7 +99,7 @@
 								<li class="head_menu trans_300"><a href="#">sectors</a></li>
 								<li class="head_menu trans_300"><a href="#">about</a></li>
 								<li class="head_menu trans_300"><a href="#">career</a></li>
-								<li class="head_menu trans_300"><a href="contact.html">contact</a></li>
+								<li class="head_menu trans_300"><a href="{% url 'contact' %}">contact</a></li>
 							</ul>
 							<ul class="navbar_user">
 								<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
