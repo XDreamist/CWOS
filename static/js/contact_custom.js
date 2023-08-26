@@ -21,7 +21,8 @@ jQuery(document).ready(function($)
 	*/
 
 	var header = $('.header');
-	var topNav = $('.top_nav')
+	var navBar = $('.navbar');
+	var topNav = $('.top_nav');
 	var hamburger = $('.hamburger_container');
 	var menu = $('.hamburger_menu');
 	var menuActive = false;
@@ -34,6 +35,7 @@ jQuery(document).ready(function($)
 	$(window).on('resize', function()
 	{
 		setHeader();
+		setnavBar();
 	});
 
 	$(document).on('scroll', function()
@@ -48,29 +50,41 @@ jQuery(document).ready(function($)
 	{
 		if(window.innerWidth < 992)
 		{
-			if($(window).scrollTop() > 100)
+			if($(window).scrollTop() > 40)
 			{
 				header.css({'top':"0"});
 			}
 			else
 			{
-				header.css({'top':"0"});
+				header.css({'top':"-70px"});
 			}
 		}
 		else
 		{
-			if($(window).scrollTop() > 100)
+			if($(window).scrollTop() > 40)
 			{
 				header.css({'top':"0"});
 			}
 			else
 			{
-				header.css({'top':"100px"});
+				header.css({'top':"-60px"});
 			}
 		}
 		if(window.innerWidth > 991 && menuActive)
 		{
 			closeMenu();
+		}
+	}
+
+		function setnavBar()
+	{
+		if(window.innerWidth < 992)
+		{
+			navBar.css({'height':"45px"});
+		}
+		else
+		{
+			navBar.css({'height':"60px"});
 		}
 	}
 
@@ -153,7 +167,7 @@ jQuery(document).ready(function($)
 
 	function initGoogleMap()
 	{
-		var myLatlng = new google.maps.LatLng(42.373122,-71.112387);
+		var myLatlng = new google.maps.LatLng(42.373122,-71.112387);/*9.25628, 76.55311*/
     	var mapOptions = 
     	{
     		center: myLatlng,

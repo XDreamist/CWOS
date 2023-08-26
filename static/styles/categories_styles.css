@@ -691,6 +691,10 @@ section
     text-decoration: none;
     display: block;
 }
+.submenu-list li a:hover
+{
+	color: #00adef;
+}
 
 /*********************************
 3.5 Hamburger Menu
@@ -1436,7 +1440,7 @@ section
 }
 .discount .product_info .product_price
 {
-	font-size: 14px;
+	font-size: 16px;
 }
 .product_price
 {

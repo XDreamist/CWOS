@@ -6,12 +6,13 @@
 
 1. Vars and Inits
 2. Set Header
-3. Init Menu
-4. Init Thumbnail
-5. Init Quantity
-6. Init Star Rating
-7. Init Favorite
-8. Init Tabs
+3. Set NavBar
+4. Init Menu
+5. Init Thumbnail
+6. Init Quantity
+7. Init Star Rating
+8. Init Favorite
+9. Init Tabs
 
 
 
@@ -28,7 +29,7 @@ jQuery(document).ready(function($)
 	*/
 
 	var header = $('.header');
-	var topNav = $('.top_nav')
+	var navBar = $('.navbar');
 	var hamburger = $('.hamburger_container');
 	var menu = $('.hamburger_menu');
 	var menuActive = false;
@@ -40,6 +41,7 @@ jQuery(document).ready(function($)
 	$(window).on('resize', function()
 	{
 		setHeader();
+		setnavBar();
 	});
 
 	$(document).on('scroll', function()
@@ -64,24 +66,24 @@ jQuery(document).ready(function($)
 	{
 		if(window.innerWidth < 992)
 		{
-			if($(window).scrollTop() > 100)
+			if($(window).scrollTop() > 40)
 			{
 				header.css({'top':"0"});
 			}
 			else
 			{
-				header.css({'top':"0"});
+				header.css({'top':"-70px"});
 			}
 		}
 		else
 		{
-			if($(window).scrollTop() > 100)
+			if($(window).scrollTop() > 40)
 			{
 				header.css({'top':"0"});
 			}
 			else
 			{
-				header.css({'top':"-100px"});
+				header.css({'top':"-60px"});
 			}
 		}
 		if(window.innerWidth > 991 && menuActive)
@@ -90,9 +92,26 @@ jQuery(document).ready(function($)
 		}
 	}
 
+	/*
+		3. Set NavBar
+
+	*/
+
+	function setnavBar()
+	{
+		if(window.innerWidth < 992)
+		{
+			navBar.css({'height':"45px"});
+		}
+		else
+		{
+			navBar.css({'height':"60px"});
+		}
+	}
+
 	/* 
 
-	3. Init Menu
+	4. Init Menu
 
 	*/
 
@@ -175,7 +194,7 @@ jQuery(document).ready(function($)
 
 	/* 
 
-	4. Init Thumbnail
+	5. Init Thumbnail
 
 	*/
 
@@ -185,6 +204,9 @@ jQuery(document).ready(function($)
 		{
 			var thumbs = $('.single_product_thumbnails ul li');
 			var singleImage = $('.single_product_image_background');
+
+			var initialActiveImage = $('.single_product_thumbnails ul li.active img').data('image');
+			singleImage.css('background-image', 'url(' + initialActiveImage + ')');
 
 			thumbs.each(function()
 			{
@@ -202,7 +224,7 @@ jQuery(document).ready(function($)
 
 	/* 
 
-	5. Init Quantity
+	6. Init Quantity
 
 	*/
 
@@ -233,7 +255,7 @@ jQuery(document).ready(function($)
 
 	/* 
 
-	6. Init Star Rating
+	7. Init Star Rating
 
 	*/
 
@@ -268,7 +290,7 @@ jQuery(document).ready(function($)
 
 	/* 
 
-	7. Init Favorite
+	8. Init Favorite
 
 	*/
 
@@ -287,7 +309,7 @@ jQuery(document).ready(function($)
 
 	/* 
 
-	8. Init Tabs
+	9. Init Tabs
 
 	*/
 
